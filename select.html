@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nr1" type="text" placeholder="add meg az 1. számot">
+    <select id="op" onchange="mutat(this)">
+        <option>+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input id="nr2" type="text" placeholder="add meg a 2. számot">
+    <button onclick="szamol()">=</button>
+    <input type="text" id="result" disabled>
+
+    <script>
+        function szamol(){
+            let nr1= +document.getElementById('nr1').value 
+            let nr2= +document.getElementById('nr2').value 
+            let op=document.getElementById('op').value
+            if(nr1 && nr2){
+                console.log('számok');
+                document.getElementById('result').value=eval(nr1+op+nr2)
+            } 
+            else{
+                console.log('nem számok');
+                document.getElementById('result').value="helytelen adatok!!!"
+                return
+            }
+        }
+        function mutat(domOBj){
+            //console.log(document.getElementById('op').value);
+            console.log(domOBj.value)
+        }
+    </script>
+</body>
+</html>
